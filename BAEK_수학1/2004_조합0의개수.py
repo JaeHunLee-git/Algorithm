@@ -1,3 +1,5 @@
+## 2와 5의 개수가 중요
+
 n, m = map(int, input().split())
 
 
