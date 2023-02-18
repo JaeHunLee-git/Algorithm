@@ -1,3 +1,5 @@
+# 더 자세히
+
 import sys
 
 input = sys.stdin.readline
