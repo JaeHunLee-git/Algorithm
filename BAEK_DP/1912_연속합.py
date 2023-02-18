@@ -1,3 +1,5 @@
+## 다시 풀어보기
+
 n = int(input())
 a = list(map(int, input().split()))
 sum = [a[0]]
