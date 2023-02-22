@@ -1,4 +1,4 @@
-## 다시 풀어보기
+## 약한 부분. 다시 풀어보기
 
 n = int(input())
 a = list(map(int, input().split()))
