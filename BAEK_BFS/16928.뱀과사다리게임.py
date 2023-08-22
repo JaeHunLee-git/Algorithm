@@ -1,37 +1,42 @@
 # import sys
-# input=sys.stdin.readline
+# sys.setrecursionlimit(10**6)
 
-# n,m=map(int,input().split())
+# n, m = map(int, sys.stdin.readline().split(' '))
 
-# ladder=[]
-# for _ in range(n):
-#     ladder.append(list(map(int,input().split())))
+# graph = [[] for _ in range(100+1)]
+# short_cut = []   # 뱀, 사다리가 놓여진 시작 칸
+# for _ in range(n+m):
+#     x, y = map(int, sys.stdin.readline().split(' '))
+#     graph[x].append(y)
+#     short_cut.append(x)
 
-# snake=[]
-# for _ in range(m):
-#     snake.append(list(map(int,input().split())))
+# for i in range(1, 100+1):
+# 	# 뱀, 사다리가 놓여진 시작 칸일 경우 +1 ~ +6으로 이동할 수 없음.
+#     if i in short_cut:
+#         continue
+#     for j in range(1, 6+1):
+#         if i+j <= 100:
+#             graph[i].append(i+j)
 
-# def dfs(a,b):  #a=현재 있는 칸, b=주사위 횟수
-#     if a==100:
-#         print(b)
-#         exit()
-#     elif a>100:
-#         return
+# #print(graph)
 
-#     for j in range(len(ladder)):
-#         if a==ladder[j][0]:
-#             a=ladder[j][1]
-    
-#     for k in range(len(snake)):
-#         if a==snake[k][0]:
-#             a=snake[k][1]
+# # 인덱스는 칸 번호를 나타내고, 각 칸에 도달할 수 있는 최소 경우의 수가 들어감.
+# cost = [0] * (100+1)
+# #print(cost)
 
-#     for i in range(1,7):
-#         a+=i
-#         dfs(a,b+1)
-#         a-=i
 
-# dfs(1,0)
+# def dfs(x, cnt):
+#     cost[x] = cnt
+#     # 뱀, 사다리를 만났을 경우, 바로 이동하기 때문에 이동 횟수가 추가되지 않음.
+#     if x in short_cut:
+#         cnt -= 1
+#     for i in graph[x]:
+#         if not cost[i] or cost[i] > cnt + 1:
+#             dfs(i, cnt+1)
+
+
+# dfs(1, 0)
+# print(cost[100])
 import sys
 from collections import deque
 
