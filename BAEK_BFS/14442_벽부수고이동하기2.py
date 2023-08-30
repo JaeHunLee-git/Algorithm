@@ -23,6 +23,7 @@ def bfs():
             nx, ny = dx[i] + x, dy[i] + y
             if 0 <= nx < n and 0 <= ny < m:
                 if board[nx][ny] == 1 and z > 0 and visited[nx][ny][z - 1] == 0:
+    ## vistied[nx][ny][z-1]==1이면 더 안 좋은 경우로 도달한 것이기 때문에 고려하지 않음
                     visited[nx][ny][z - 1] = visited[x][y][z] + 1
                     q.append([nx, ny, z - 1])
                 elif board[nx][ny] == 0 and visited[nx][ny][z] == 0:
