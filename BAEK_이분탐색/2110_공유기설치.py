@@ -1,3 +1,4 @@
+# 최대 사거리를 구하는 것이기 때문에 end가 정답
 import sys
 
 input = sys.stdin.readline
