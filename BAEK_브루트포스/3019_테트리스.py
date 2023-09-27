@@ -1,3 +1,4 @@
+# 구글링
 import sys
 
 input = sys.stdin.readline
