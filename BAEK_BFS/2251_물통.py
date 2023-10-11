@@ -1,3 +1,4 @@
+## 들어있는 물의 양을 인덱스로
 import sys
 from collections import deque
 
