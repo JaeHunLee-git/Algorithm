@@ -6,8 +6,9 @@ t = int(input())
 for _ in range(t):
     ans = "YES"
     n = int(input())
-    arr = [int(input()) for i in range(n)]
+    arr = [input().strip() for i in range(n)]
     arr.sort()
-    for i in range(n):
-        for j in range(i + 1, n):
-            print()
+    for i in range(n - 1):
+        if arr[i + 1].startswith(arr[i]):
+            ans = "NO"
+    print(ans)
