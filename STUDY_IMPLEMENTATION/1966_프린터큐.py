@@ -22,7 +22,7 @@ for _ in range(t):
             result += 1  ## 처리순서에 1을 더함
         if m > 0:
             m -= 1
-        else:  ## m이 0이지만 중요한 문서가 있으면 맨 뒤로 이동
+        else:  ## m이 0이지만 중요한 문서가 있으면 맨 뒤로 이동, 찾는 것의 인덱스를 따라가는거임
             m = len(data) - 1
 
     print(result)
