@@ -1,5 +1,5 @@
 # 최단 경로 = BFS
-# 벽을 부수고 간 곳의 visited와 부수지 않고 간 것의 visited는 다름
+# 벽을 부수고 간 곳의 visited와 부수지 않고 간 곳의 visited는 다름
 import sys
 from collections import deque
 
