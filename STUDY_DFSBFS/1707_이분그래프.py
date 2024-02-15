@@ -1,3 +1,4 @@
+# 구글링
 import sys
 
 sys.setrecursionlimit(10**6)
