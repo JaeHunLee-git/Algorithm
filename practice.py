@@ -1,4 +1,4 @@
-# 복습 필요
+# 복습 필요, 구글링
 import sys
 
 sys.setrecursionlimit(10**6)
