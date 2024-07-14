@@ -23,9 +23,15 @@ for num in range(2, n + 1):
         arr_sosu.append(num)
 
 ans = 0
-for _ in range(k):
-    tmp = arr_sosu.pop(0)
-    while tmp < max(arr):
+i = 0
+while i <= k:
+    tmp = arr_sosu.pop(0)  ## 소수
+    tmp_plus = tmp
+    while tmp <= max(arr):
         if tmp in arr:
+            i += 1
+            if i == k:
+                print(tmp)
+                exit(0)
             arr.remove(tmp)
-            tmp += tmp
+        tmp += tmp_plus
