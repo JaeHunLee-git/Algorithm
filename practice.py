@@ -1,4 +1,4 @@
-# 복습 필요
+# DFS 복습 필요
 import sys
 
 sys.setrecursionlimit(10**6)
