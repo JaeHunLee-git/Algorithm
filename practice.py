@@ -1,32 +1,46 @@
-# DFS 복습 필요
 import sys
 
-sys.setrecursionlimit(10**6)
+sys.setrecursionlimit(10000000)
+
 input = sys.stdin.readline
+n, m = map(int, input().split())
+graph = []
+
+for i in range(n):
+    graph.append(list(map(int, input().split())))
+
+dx = [-1, 1, 0, 0]
+dy = [0, 0, 1, -1]
+
+areas = []
+cnt = 0
 
 
-def dfs(sx, sy):
-    # 도착 지점에 도달하면 1(한 가지 경우의 수)를 리턴
-    if sx == m - 1 and sy == n - 1:
-        return 1
-
-    # 이미 방문한 적이 있다면 그 위치에서 출발하는 경우의 수를 리턴
-    if dp[sx][sy] != -1:
-        return dp[sx][sy]
-
-    ways = 0
-    for i in range(4):
-        nx, ny = sx + dx[i], sy + dy[i]
-        if 0 <= nx < m and 0 <= ny < n and graph[sx][sy] > graph[nx][ny]:
-            ways += dfs(nx, ny)
-
-    dp[sx][sy] = ways
-    return dp[sx][sy]
+def dfs(x, y):
+    global cnt
+    if x <= -1 or x >= n or y <= -1 or y >= m:
+        return False
+    if graph[x][y] == 1:
+        cnt += 1
+        graph[x][y] = 0
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            dfs(nx, ny)
+        return True
+    return False
 
 
-m, n = map(int, input().split())
-graph = [list(map(int, input().split())) for _ in range(m)]
-dp = [[-1] * n for _ in range(m)]
-dx, dy = [1, -1, 0, 0], [0, 0, 1, -1]
+for i in range(n):
+    for j in range(m):
+        if graph[i][j] == 1:
+            cnt = 0
+            dfs(i, j)
+            areas.append(cnt)
 
-print(dfs(0, 0))
+if len(areas) == 0:
+    print(0)
+    print(0)
+else:
+    print(len(areas))
+    print(max(areas))
