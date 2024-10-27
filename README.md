@@ -1,2 +1,2 @@
-# algorithms-in-python
-파이썬 알고리즘
+# Algorithms
+Repository for automatic commits of Baekjoon, Programmers, and SWEA using BaekjoonHub.
