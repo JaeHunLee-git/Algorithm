@@ -1,7 +1,9 @@
 def solution(citations):
-    n = len(citations)
+    citations.sort()
     
-    for h in range(n, -1, -1):
+    answer = 0
+    
+    for h in citations:
         cnt = 0
         
         for citation in citations:
@@ -9,6 +11,16 @@ def solution(citations):
                 cnt += 1
         
         if cnt >= h:
-            return h
+            answer = h
     
-    return 0
+    for h in range(answer, len(citations) + 1):
+        cnt = 0
+        
+        for citation in citations:
+            if citation >= h:
+                cnt += 1
+        
+        if cnt >= h:
+            answer = h
+    
+    return answer
